@@ -4,6 +4,10 @@
   "main": "index.js",
   "author": "alanwcg <alancintra7@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "test": "jest",
+    "test:staged": "jest"
+  },
   "devDependencies": {
     "@types/jest": "^27.4.0",
     "@types/node": "^17.0.8",
@@ -18,9 +22,7 @@
     "jest": "^27.4.7",
     "lint-staged": "^12.1.7",
     "ts-jest": "^27.1.2",
+    "ts-node": "^10.4.0",
     "typescript": "*"
-  },
-  "scripts": {
-    "test": "jest"
   }
 }
