@@ -6,7 +6,8 @@
   "license": "MIT",
   "scripts": {
     "test": "jest",
-    "test:staged": "jest"
+    "test:staged": "jest",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@types/jest": "^27.4.0",
