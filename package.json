@@ -5,8 +5,8 @@
   "author": "alanwcg <alancintra7@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "test": "jest",
-    "test:staged": "jest",
+    "test": "jest --passWithNoTests",
+    "test:staged": "jest --passWithNoTests",
     "prepare": "husky install"
   },
   "devDependencies": {
