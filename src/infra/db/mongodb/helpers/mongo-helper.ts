@@ -1,4 +1,10 @@
-import { Collection, MongoClient } from 'mongodb'
+import { Collection, MongoClient, ObjectId } from 'mongodb'
+import { AccountModel } from '../../../../domain/models/account'
+
+interface MapperParams {
+  insertedId: ObjectId
+  insertedData: any
+}
 
 export const MongoHelper = {
   client: null as MongoClient,
@@ -13,5 +19,9 @@ export const MongoHelper = {
 
   getCollection (name: string): Collection {
     return this.client.db().collection(name)
+  },
+
+  mapper ({ insertedId, insertedData }: MapperParams): AccountModel {
+    return Object.assign({}, insertedData, { id: insertedId.toString() })
   }
 }
