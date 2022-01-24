@@ -9,7 +9,12 @@ export const adaptRoute = (controller: Controller): RequestHandler => {
     }
 
     const { statusCode, body } = await controller.handle(httpRequest)
-
-    response.status(statusCode).json(body)
+    if (statusCode === 200) {
+      response.status(statusCode).json(body)
+    } else {
+      response.status(statusCode).json({
+        error: body.message
+      })
+    }
   }
 }
