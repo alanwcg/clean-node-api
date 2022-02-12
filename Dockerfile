@@ -4,7 +4,7 @@ WORKDIR /usr/app/clean-node-api
 
 COPY ./package.json ./
 
-RUN npm install --only=prod
+RUN npm set-script prepare "" && npm install --only=prod
 
 COPY ./dist ./dist
 
