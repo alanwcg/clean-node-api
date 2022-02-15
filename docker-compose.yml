@@ -1,4 +1,4 @@
-version: "3.8"
+version: "3"
 services:
   mongo:
     container_name: mongo-container
@@ -10,10 +10,10 @@ services:
       - "27017:27017"
   api:
     container_name: api-container
-    build: ./
-    image: clean-node-api
+    image: node:16
+    working_dir: /usr/app/clean-node-api
     restart: always
-    command: npm run debug
+    command: bash -c "npm set-script prepare '' && npm install --only=prod && npm run debug"
     volumes:
       - ./dist:/usr/app/clean-node-api/dist
       - ./package.json:/usr/app/clean-node-api/package.json
