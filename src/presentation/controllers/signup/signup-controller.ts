@@ -3,13 +3,15 @@ import {
   HttpResponse,
   Controller,
   AddAccount,
-  Validation
+  Validation,
+  Authentication
 } from './signup-controller-protocols'
 import { badRequest, serverError, success } from '../../helpers/http/http-helper'
 
 export class SignUpController implements Controller {
   constructor (
     private readonly addAccount: AddAccount,
+    private readonly authentication: Authentication,
     private readonly validation: Validation
   ) {}
 
@@ -28,6 +30,8 @@ export class SignUpController implements Controller {
         email,
         password
       })
+
+      await this.authentication.auth({ email, password })
 
       return success(account)
     } catch (error) {
