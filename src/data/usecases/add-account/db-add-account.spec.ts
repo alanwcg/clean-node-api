@@ -142,6 +142,4 @@ describe('DbAddAccount UseCase', () => {
 
     expect(loadByEmailSpy).toHaveBeenCalledWith('valid_email@mail.com')
   })
-
-  
 })
