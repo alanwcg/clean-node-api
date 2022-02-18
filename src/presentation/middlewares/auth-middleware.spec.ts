@@ -7,7 +7,7 @@ import { AccountModel } from '../../domain/models/account'
 
 const makeFakeHttpRequest = (): HttpRequest => ({
   headers: {
-    'x-access-token': 'any_token'
+    Authorization: 'Bearer any_token'
   }
 })
 
@@ -44,7 +44,7 @@ const makeSut = (): SutTypes => {
 }
 
 describe('Auth Middleware', () => {
-  it('should return 403 if no x-access-token exists in headers', async () => {
+  it('should return 403 if no Authorization exists in headers', async () => {
     const { sut } = makeSut()
 
     const httpResponse = await sut.handle({})
