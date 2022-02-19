@@ -43,7 +43,7 @@ export class AccountMongoRepository implements
 
     const account = await accountCollection.findOne<AccountModel>({
       accessToken: token,
-      role
+      $or: [{ role }, { role: 'admin' }]
     })
 
     return account && MongoHelper.mapper({ insertedData: account })
