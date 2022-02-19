@@ -15,10 +15,11 @@ export class AuthMiddleware implements Middleware {
 
   async handle (httpRequest: HttpRequest): Promise<HttpResponse> {
     try {
-      const authHeader = httpRequest.headers?.Authorization
+      const authHeader = httpRequest.headers?.authorization
 
       if (authHeader) {
         const [, accessToken] = authHeader.split(' ')
+
         const account = await this.loadAccountByToken.load(accessToken, this.role)
         if (account) {
           return success({ accountId: account.id })

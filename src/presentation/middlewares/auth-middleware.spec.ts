@@ -9,7 +9,7 @@ import {
 
 const makeFakeHttpRequest = (): HttpRequest => ({
   headers: {
-    Authorization: 'Bearer any_token'
+    authorization: 'Bearer any_token'
   }
 })
 
